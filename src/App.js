@@ -1,8 +1,9 @@
 import React from 'react';
-import './App.css';
+
+import Route from './routes';
 
 function App() {
-  return <h1>Test</h1>;
+  return <Route />;
 }
 
 export default App;
