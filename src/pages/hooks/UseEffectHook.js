@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function UseStateHook() {
+export default function UseEffectHook() {
   const [techs, setTechs] = useState([]);
   const [newTech, setNewTech] = useState('');
 
@@ -10,12 +10,29 @@ export default function UseStateHook() {
     setNewTech('');
   }
 
+  // componentDidMount - dependency array is empty
+  useEffect(() => {
+    const storageTechs = localStorage.getItem('techs');
+
+    if (storageTechs) {
+      setTechs(JSON.parse(storageTechs));
+    }
+
+    // Only componentWillAmount
+    // return () => {};
+  }, []);
+
+  // componentDidUpdate - monitoring -- techs state --
+  useEffect(() => {
+    localStorage.setItem('techs', JSON.stringify(techs));
+  }, [techs]);
+
   return (
     <>
       <p>
         <Link to="/">{'<<<<'}</Link>
       </p>
-      <h1>useState hook</h1>
+      <h1>useEffect hook</h1>
       <ul>
         {techs.map((tech) => (
           <li key={tech}>{tech}</li>

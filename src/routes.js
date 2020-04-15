@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 import UseStateHook from './pages/hooks/UseStateHook';
+import UseEffectHook from './pages/hooks/UseEffectHook';
 
 export default function Routes() {
   return (
@@ -10,6 +11,7 @@ export default function Routes() {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/useStateHook" component={UseStateHook} />
+        <Route path="/useEffectHook" component={UseEffectHook} />
       </Switch>
     </BrowserRouter>
   );
